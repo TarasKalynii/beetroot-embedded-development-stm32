@@ -18,3 +18,9 @@
 ADC: 4093 | 3298 mV
 ADC: 4094 | 3299 mV
 ```
+
+## Демонстрація
+
+Виведення результатів вимірювання ADC через USART2 з DMA у CoolTerm:
+
+![Результати вимірювання ADC з DMA у CoolTerm](images/coolterm-adc-dma.png)
