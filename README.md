@@ -1,11 +1,11 @@
-# Embedded Development — Module 2, Lesson 2.9
+# Модуль 4.7 · SWD debug на STM32
 
-STM32F411 · STM32CubeMX + STM32CubeIDE
+Домашнє завдання Beetroot Academy на STM32F411CEU6 (Black Pill). Світлодіод на `PC14` блимає, а натискання кнопки на `PA0` змінює інтервал між перемиканнями по колу — 100, 250, 500, 1000 і 2000 мс.
 
-LED on PC13 blinks every 500 ms. The button on PA0 uses an EXTI interrupt with 50 ms debounce and switches between blinking and always-on modes. USB CDC sends serial log messages.
+Головний цикл зчитує кнопку з `GPIOA->IDR`, перемикає світлодіод через `GPIOC->ODR` і бере час із мілісекундного лічильника, який оновлює переривання SysTick.
 
-`setup()` and `loop()` are implemented in `Core/Src/app.c` and declared in `Core/Inc/app.h`.
+## Запуск
 
-## Result
-
-![Button switches between ON and BLINK modes — USB CDC serial log](images/usb-cdc-log.jpg)
+1. Відкрий `27_11_2026.ioc` у STM32CubeMX і згенеруй проєкт для STM32CubeIDE. Скопіюй файли з `Core/` у відповідні папки згенерованого проєкту.
+2. Підключи світлодіод через резистор до `PC14`. Підключи кнопку між `PA0` і `GND`. Внутрішню підтяжку кнопки ввімкнено в конфігурації.
+3. Збери проєкт і проший плату через ST-LINK. Натисни кнопку, щоб змінити інтервал блимання.
